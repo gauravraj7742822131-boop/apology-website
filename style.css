@@ -1,0 +1,639 @@
+/* =========================
+   BODY
+========================= */
+
+body{
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   SCENE CARD
+========================= */
+
+.container{
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.08);
+
+    padding: 60px;
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.35),
+    0 0 30px rgba(255,255,255,.08);
+
+    transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+
+    animation: fadeIn 1s ease, floatCard 5s ease-in-out infinite;
+
+}
+
+.container::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-60%;
+
+    width:50%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation:glassShine 8s linear infinite;
+
+    pointer-events:none;
+
+}
+
+/* =========================
+   TEXT
+========================= */
+
+h1{
+
+    font-size:60px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+p{
+
+    font-size:20px;
+
+    font-weight:300;
+
+    line-height:1.8;
+
+    margin-top:0;
+
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    margin-top:25px;
+
+    padding:15px 35px;
+
+    font-size:18px;
+
+    font-family:'Poppins', sans-serif;
+
+    background:white;
+
+    color:#1e3a8a;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+}
+
+button:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 12px 30px rgba(255,255,255,.35);
+
+}
+
+/* =========================
+   FADE OUT
+========================= */
+
+.fade-out{
+
+    opacity:0;
+
+    transform:translateY(-20px) scale(.98);
+
+    transition:all .8s ease;
+
+}
+
+/* =========================
+   FADE IN
+========================= */
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px)
+            scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
+
+@keyframes gradientMove{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    50%{
+
+        background-position:100% 50%;
+
+    }
+
+    100%{
+
+        background-position:0% 50%;
+
+    }
+
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    height:100vh;
+
+}
+
+.letter-paper{
+
+    width:760px;
+    max-width:90%;
+    height:85vh;
+
+    background:#fffdf8;
+    color:#2d2d2d;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+
+    animation:letterAppear 1s ease;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.letter-content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+
+    text-align:left;
+
+}
+
+.letter-content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+
+    text-align:left;
+
+}
+
+.letter-footer{
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(0,0,0,.1);
+
+    text-align:center;
+
+}
+
+.letter-paper h2{
+
+    margin-top:0;
+    margin-bottom:20px;
+
+    font-size:34px;
+
+    color:#1e3a8a;
+
+}
+
+.letter-paper p{
+
+    font-size:20px;
+
+    color:#444;
+
+    line-height:1.8;
+
+    letter-spacing:.2px;
+
+}
+
+/* =========================
+   LETTER ANIMATION
+========================= */
+
+@keyframes letterAppear{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            perspective(1200px)
+            rotateX(-25deg)
+            scale(.92);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            perspective(1200px)
+            rotateX(0deg)
+            scale(1);
+
+    }
+
+}
+#letterText{
+    white-space: pre-wrap;
+}
+
+@keyframes blink{
+
+    0%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
+
+}
+
+#endingText{
+
+    font-size:24px;
+
+    min-height:120px;
+
+    line-height:1.7;
+
+}
+
+#letterContinue{
+
+    display:none;
+
+    margin:40px auto 0;
+
+    padding:14px 32px;
+
+    font-size:18px;
+
+}
+
+#finalPage{
+
+    animation:fadeIn 2s ease;
+
+}
+
+#finalPage h1{
+
+    margin-bottom:25px;
+
+}
+
+#finalPage p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:2;
+
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+
+}
+
+/* =========================
+   STARRY BACKGROUND
+========================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.6) 1px, transparent 1.5px);
+
+    background-size:140px 140px,220px 220px;
+
+    background-position:0 0,70px 70px;
+
+    opacity:.35;
+
+    pointer-events:none;
+
+    animation:starsMove 40s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-60px);
+    }
+
+}
+/* =========================
+   SHOOTING STAR
+========================= */
+
+.shooting-star{
+
+    position:fixed;
+
+    top:15%;
+
+    left:-150px;
+
+    width:160px;
+
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        white,
+        rgba(255,255,255,.7),
+        transparent
+    );
+
+    border-radius:999px;
+
+    transform:rotate(-25deg);
+
+    box-shadow:0 0 15px white;
+
+    animation:meteor 9s linear infinite;
+
+    pointer-events:none;
+
+}
+@keyframes meteor{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(0,0)
+            rotate(-25deg);
+
+    }
+
+    5%{
+
+        opacity:1;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+        transform:
+            translate(1600px,500px)
+            rotate(-25deg);
+
+    }
+
+    16%{
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(1600px,500px)
+            rotate(-25deg);
+
+    }
+
+}
+
+/* =========================
+   SHOOTING STAR
+========================= */
+
+.shooting-star{
+
+    position:fixed;
+
+    top:15%;
+
+    left:-150px;
+
+    width:160px;
+
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        white,
+        rgba(255,255,255,.7),
+        transparent
+    );
+
+    border-radius:999px;
+
+    transform:rotate(-25deg);
+
+    box-shadow:0 0 15px white;
+
+    animation:meteor 9s linear infinite;
+
+    pointer-events:none;
+
+}
+
+@keyframes meteor{
+
+    0%{
+        opacity:0;
+        transform:translate(0,0) rotate(-25deg);
+    }
+
+    5%{
+        opacity:1;
+    }
+
+    15%{
+        opacity:1;
+        transform:translate(1600px,500px) rotate(-25deg);
+    }
+
+    16%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(1600px,500px) rotate(-25deg);
+    }
+
+}
+
+/* =========================
+   CURSOR GLOW
+========================= */
+
+#cursorGlow{
+
+    position:fixed;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(120,180,255,.18),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:-1;
+
+    transition:transform .08s linear;
+
+}
+
+@keyframes glassShine{
+
+    0%{
+        left:-60%;
+    }
+
+    100%{
+        left:130%;
+    }
+
+}
